@@ -20,15 +20,20 @@ export default function Details() {
 
   return (
     <div style={{ minHeight: '100vh', padding: '5rem 0' }}>
-      <Card sx={{ maxWidth: 600, width: '90%', margin: 'auto' }}>
+      <Card
+        sx={{ maxWidth: 600, width: '90%', margin: 'auto', bgcolor: '#073B4C' }}
+      >
         <CardHeader
           avatar={
-            <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
-              B
-            </Avatar>
+            <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe"></Avatar>
           }
           title={
-            <Typography variant="h4">{state.title.toUpperCase()}</Typography>
+            <Typography
+              variant="h4"
+              sx={{ color: '#EF476F', fontWeight: 'bold' }}
+            >
+              {state.title.toUpperCase()}
+            </Typography>
           }
         />
         <CardMedia
@@ -38,7 +43,7 @@ export default function Details() {
           alt={state.title}
         />
         <CardContent>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" sx={{ fontSize: 16, color: '#06D6A0' }}>
             {state.content}
           </Typography>
         </CardContent>
@@ -48,11 +53,7 @@ export default function Details() {
               sx={{ color: 'orangered' }}
               onClick={() => navigate(-1)}
             />
-            {/* <FavoriteIcon sx={{marginLeft:'auto', color: state.favourite !== '0' && 'red'}}/> */}
           </IconButton>
-          {/* <Typography variant='h6'>
-          {state.favourite !== '0' ? state.favourite : null}
-        </Typography> */}
         </CardActions>
       </Card>
     </div>

@@ -17,7 +17,7 @@ import { BlogContext } from '../context/BlogContext';
 // MATERIAL UI STARTS HERE
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
-  borderRadius: theme.shape.borderRadius,
+  borderRadius: 5 * theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
@@ -122,14 +122,6 @@ export default function PrimarySearchAppBar() {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              navigate('/about');
-              setAnchorEl(null);
-            }}
-          >
-            About
-          </MenuItem>
-          <MenuItem
-            onClick={() => {
               navigate('/myposts');
               setAnchorEl(null);
             }}
@@ -173,13 +165,23 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ backgroundColor: '#1b7e21' }}>
-        <Toolbar>
+      <AppBar position="fixed" sx={{ backgroundColor: '#E5989B' }}>
+        <Toolbar component="div" className="container">
           <Typography
-            variant="h4"
+            className="blog-name"
+            variant="h3"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block', cursor: 'pointer' } }}
+            sx={{
+              fontWeight: 'bold',
+              display: { xs: 'none', sm: 'block', cursor: 'pointer' },
+              mr: {
+                sm: 0,
+                md: 20,
+                lg: 30,
+                xl: 70,
+              },
+            }}
             onClick={() => navigate('/')}
           >
             NAO Blog
@@ -188,9 +190,7 @@ export default function PrimarySearchAppBar() {
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <form
-            // onSubmit={handleSearch}
-            >
+            <form className="search-input">
               <StyledInputBase
                 placeholder="Search for a post..."
                 inputProps={{ 'aria-label': 'search' }}
@@ -201,9 +201,9 @@ export default function PrimarySearchAppBar() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           {user ? (
-            <div>
+            <div className="navbar-options">
               <Typography
-                variant="body1"
+                variant="h6"
                 noWrap
                 component="p"
                 sx={{ display: { xs: 'none', lg: 'block' }, margin: '0 .6rem' }}
@@ -223,20 +223,6 @@ export default function PrimarySearchAppBar() {
                 }}
               >
                 Home
-              </Typography>
-              <Typography
-                variant="h6"
-                noWrap
-                component="h6"
-                sx={{
-                  display: { xs: 'none', lg: 'block', cursor: 'pointer' },
-                  margin: '0 .6rem',
-                }}
-                onClick={() => {
-                  navigate('/about');
-                }}
-              >
-                About
               </Typography>
               <Typography
                 variant="h6"
@@ -278,7 +264,7 @@ export default function PrimarySearchAppBar() {
               </Typography>
             </div>
           ) : (
-            <div>
+            <div className="navbar-options">
               <Typography
                 variant="h6"
                 noWrap
@@ -292,20 +278,6 @@ export default function PrimarySearchAppBar() {
                 }}
               >
                 Home
-              </Typography>
-              <Typography
-                variant="h6"
-                noWrap
-                component="h6"
-                sx={{
-                  display: { xs: 'none', lg: 'block', cursor: 'pointer' },
-                  margin: '0 .6rem',
-                }}
-                onClick={() => {
-                  navigate('/about');
-                }}
-              >
-                About
               </Typography>
               <Typography
                 variant="h6"

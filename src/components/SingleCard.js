@@ -63,13 +63,13 @@ const SingleCard = props => {
 
   return (
     <Grid item>
-      <Card sx={{ width: 345, height: 360 }}>
+      <Card sx={{ width: 400, maxHeight: 530, bgcolor: '#073B4C' }}>
         <CardActionArea sx={{ cursor: 'default' }}>
           <CardMedia
             component="img"
             // height="140"
             // width='345'
-            sx={{ height: '140px', width: '345', objectFit: 'fill' }}
+            sx={{ maxHeight: '300px', maxWidth: '400px', objectFit: 'fill' }}
             image={isValid ? image : randomImage}
             alt={title}
           />
@@ -84,13 +84,21 @@ const SingleCard = props => {
                 display: '-webkit-box',
                 WebkitLineClamp: '1',
                 WebkitBoxOrient: 'vertical',
-                height: '30px',
+                height: '35px',
+                fontWeight: 'bold',
+                fontSize: 35,
+                color: '#EF476F',
               }}
             >
               {title}
             </Typography>
-            <Typography gutterBottom variant="h6" component="h6">
-              <i> @{author}</i>
+            <Typography
+              gutterBottom
+              variant="h6"
+              component="h6"
+              sx={{ fontWeight: 'bold', fontSize: 20, color: '#06D6A0' }}
+            >
+              <i> #{author}</i>
             </Typography>
             <Typography
               gutterBottom
@@ -103,6 +111,7 @@ const SingleCard = props => {
                 WebkitLineClamp: '2',
                 WebkitBoxOrient: 'vertical',
                 height: '50px',
+                color: '#FFD166',
               }}
             >
               {content}
@@ -113,7 +122,7 @@ const SingleCard = props => {
           <Button
             size="small"
             variant="contained"
-            color="secondary"
+            sx={{ bgcolor: '#4D908E' }}
             onClick={handleDetails}
           >
             Details
@@ -123,7 +132,7 @@ const SingleCard = props => {
               <Button
                 size="small"
                 variant="contained"
-                color="primary"
+                sx={{ bgcolor: '#9470FF' }}
                 onClick={handleEdit}
               >
                 Edit
@@ -131,7 +140,7 @@ const SingleCard = props => {
               <Button
                 size="small"
                 variant="contained"
-                color="warning"
+                sx={{ bgcolor: '#6A040F' }}
                 onClick={() => deletePost(id)}
               >
                 Delete
@@ -146,7 +155,9 @@ const SingleCard = props => {
             }}
             onClick={() => increaseFav(props.post)}
           />
-          <Typography>{favourite !== '0' ? favourite : null}</Typography>
+          <Typography sx={{ color: '#FFD166' }}>
+            {favourite !== '0' ? favourite : null}
+          </Typography>
         </CardActions>
       </Card>
       <EditPost />

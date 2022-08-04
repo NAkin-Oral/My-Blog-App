@@ -5,15 +5,42 @@
 }
 
 .App {
-  background-image: url(./assets/pitch.jpg);
+  background-image: url(https://picsum.photos/1600/900);
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 100vh;
+  min-height: calc(100vh - 48px);
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s;
+.navbar-options {
+  display: flex;
+}
+
+.navbar-options p {
+  color: #6d6875;
+}
+
+.navbar-options h6 {
+  color: #663d45;
+  transition: opacity 0.3s;
+}
+
+.navbar-options h6:hover {
+  opacity: 0.6;
+}
+
+.blog-name {
+  color: #a8dadc;
+  transition: opacity 0.3s;
+}
+
+.blog-name:hover {
+  opacity: 0.5;
+}
+.search-input {
+  color: #b61624;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
 }
