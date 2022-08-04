@@ -14,7 +14,6 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import { AuthContext } from '../context/AuthContext';
 import { BlogContext } from '../context/BlogContext';
 
-// MATERIAL UI STARTS HERE
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: 5 * theme.shape.borderRadius,
@@ -53,10 +52,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-// MATERIAL UI ENDS HERE
 
 export default function PrimarySearchAppBar() {
-  // PAGE STATES FUNCTIONALITIES HERE
   const navigate = useNavigate();
   const { logout, user } = React.useContext(AuthContext);
   const { setNewPostOpen, search, setSearch } = React.useContext(BlogContext);
@@ -74,7 +71,6 @@ export default function PrimarySearchAppBar() {
     logout(navigate);
   };
 
-  // MATERIAL UI STARTS HERE
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
@@ -122,6 +118,14 @@ export default function PrimarySearchAppBar() {
           </MenuItem>
           <MenuItem
             onClick={() => {
+              navigate('/about');
+              setAnchorEl(null);
+            }}
+          >
+            About
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
               navigate('/myposts');
               setAnchorEl(null);
             }}
@@ -147,6 +151,14 @@ export default function PrimarySearchAppBar() {
             }}
           >
             Home
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              navigate('/about');
+              setAnchorEl(null);
+            }}
+          >
+            About
           </MenuItem>
           <MenuItem onClick={loginClick}>Login</MenuItem>
           <MenuItem onClick={registerClick}>Register</MenuItem>
@@ -225,6 +237,20 @@ export default function PrimarySearchAppBar() {
                   margin: '0 .6rem',
                 }}
                 onClick={() => {
+                  navigate('/about');
+                }}
+              >
+                About
+              </Typography>
+              <Typography
+                variant="h6"
+                noWrap
+                component="h6"
+                sx={{
+                  display: { xs: 'none', lg: 'block', cursor: 'pointer' },
+                  margin: '0 .6rem',
+                }}
+                onClick={() => {
                   navigate('/myposts');
                 }}
               >
@@ -280,6 +306,20 @@ export default function PrimarySearchAppBar() {
                   margin: '0 .6rem',
                 }}
                 onClick={() => {
+                  navigate('/about');
+                }}
+              >
+                About
+              </Typography>
+              <Typography
+                variant="h6"
+                noWrap
+                component="h6"
+                sx={{
+                  display: { xs: 'none', lg: 'block', cursor: 'pointer' },
+                  margin: '0 .6rem',
+                }}
+                onClick={() => {
                   navigate('/login');
                 }}
               >
@@ -301,7 +341,6 @@ export default function PrimarySearchAppBar() {
               </Typography>
             </div>
           )}
-
           <Box sx={{ display: 'flex' }}>
             <IconButton
               sx={{ display: { lg: 'none' } }}

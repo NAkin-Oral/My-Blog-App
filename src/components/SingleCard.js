@@ -67,8 +67,6 @@ const SingleCard = props => {
         <CardActionArea sx={{ cursor: 'default' }}>
           <CardMedia
             component="img"
-            // height="140"
-            // width='345'
             sx={{ maxHeight: '300px', maxWidth: '400px', objectFit: 'fill' }}
             image={isValid ? image : randomImage}
             alt={title}

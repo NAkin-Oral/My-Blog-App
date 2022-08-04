@@ -87,3 +87,23 @@
   background: #240046;
   color: #489fb5;
 }
+
+.about h3 {
+  color: #d8315b;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+}
+
+.about p {
+  color: #0a2463;
+  font-weight: 500;
+  text-align: justify;
+  margin: 0.4rem auto;
+  padding: 0.2rem;
+  line-height: 2.4rem;
+}
+
+.tools-title h3 {
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+}
