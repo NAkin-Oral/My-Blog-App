@@ -1,25 +1,31 @@
-import React,{useContext} from 'react';
+import React, { useContext } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import {BlogContext} from '../context/BlogContext';
+import { BlogContext } from '../context/BlogContext';
 
 export default function EditPost() {
- const {editPostOpen, setEditPostOpen,editBlogPost,updateInfo,setUpdateInfo} = useContext(BlogContext)
+  const {
+    editPostOpen,
+    setEditPostOpen,
+    editBlogPost,
+    updateInfo,
+    setUpdateInfo,
+  } = useContext(BlogContext);
 
   const handleClose = () => {
     setEditPostOpen(false);
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setUpdateInfo({
-        ...updateInfo,
-        [e.target.id] : e.target.value
-    })
-  }
+      ...updateInfo,
+      [e.target.id]: e.target.value,
+    });
+  };
 
   return (
     <div>
@@ -57,6 +63,8 @@ export default function EditPost() {
             label="Content"
             type="text"
             fullWidth
+            multiline
+            maxRows={10}
             variant="standard"
             value={updateInfo.content}
             onChange={handleChange}

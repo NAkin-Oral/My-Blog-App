@@ -1,14 +1,24 @@
-import React,{useContext} from 'react';
+import React, { useContext } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import {BlogContext} from '../context/BlogContext';
+import { BlogContext } from '../context/BlogContext';
 
 export default function NewPost() {
- const {newPostOpen,setNewPostOpen,title,content,image,setTitle,setImage,setContent,writeToDatabase} = useContext(BlogContext)
+  const {
+    newPostOpen,
+    setNewPostOpen,
+    title,
+    content,
+    image,
+    setTitle,
+    setImage,
+    setContent,
+    writeToDatabase,
+  } = useContext(BlogContext);
 
   const handleClose = () => {
     setNewPostOpen(false);
@@ -16,7 +26,12 @@ export default function NewPost() {
 
   return (
     <div>
-      <Dialog open={newPostOpen} onClose={handleClose}>
+      <Dialog
+        open={newPostOpen}
+        onClose={handleClose}
+        noValidate
+        autoComplete="off"
+      >
         <DialogTitle>Add New Blog Post</DialogTitle>
         <DialogContent>
           <TextField
@@ -28,7 +43,7 @@ export default function NewPost() {
             fullWidth
             variant="standard"
             value={title}
-            onChange={(e)=>setTitle(e.target.value)}
+            onChange={e => setTitle(e.target.value)}
             required
           />
           <TextField
@@ -40,7 +55,7 @@ export default function NewPost() {
             fullWidth
             variant="standard"
             value={image}
-            onChange={(e)=>setImage(e.target.value)}
+            onChange={e => setImage(e.target.value)}
             placeholder="If you don't type an URL random image will be placed."
           />
           <TextField
@@ -50,9 +65,11 @@ export default function NewPost() {
             label="Content"
             type="text"
             fullWidth
+            multiline
+            maxRows={10}
             variant="standard"
             value={content}
-            onChange={(e)=>setContent(e.target.value)}
+            onChange={e => setContent(e.target.value)}
             required
           />
         </DialogContent>

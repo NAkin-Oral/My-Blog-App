@@ -148,14 +148,6 @@ export default function PrimarySearchAppBar() {
           >
             Home
           </MenuItem>
-          <MenuItem
-            onClick={() => {
-              navigate('/about');
-              setAnchorEl(null);
-            }}
-          >
-            About
-          </MenuItem>
           <MenuItem onClick={loginClick}>Login</MenuItem>
           <MenuItem onClick={registerClick}>Register</MenuItem>
         </div>
