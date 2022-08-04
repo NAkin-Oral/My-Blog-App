@@ -1,31 +1,51 @@
-import React from 'react'
+import React from 'react';
 import TextField from '@mui/material/TextField';
 import { Container } from '@mui/system';
 import { Button } from '@mui/material';
-import { useContext } from "react"
-import { AuthContext } from "../context/AuthContext"
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-
 const Register = () => {
-  const { fname, lname, setFname, setLname, email, password, setEmail, setPassword, register } = useContext(AuthContext)
+  const {
+    fname,
+    lname,
+    setFname,
+    setLname,
+    email,
+    password,
+    setEmail,
+    setPassword,
+    register,
+  } = useContext(AuthContext);
   const navigate = useNavigate();
 
   return (
-    <Container sx={{height: '100vh', paddingTop:'6rem'}}>
-
+    <Container sx={{ height: '100vh', paddingTop: '6rem' }}>
+      <div className="login-title">
+        <h1>Welcome Aboard</h1>
+      </div>
       <form
-        onSubmit={(e) => register(e, navigate)}
-        style={{ maxWidth: '350px', width: '100%', margin: 'auto', textAlign: 'center', padding:'4rem 0', background:'#ffffffff', borderRadius:'30px'}}>
+        onSubmit={e => register(e, navigate)}
+        style={{
+          maxWidth: '350px',
+          width: '100%',
+          margin: '3rem auto',
+          textAlign: 'center',
+          padding: '3rem 0',
+          background: '#ffffffff',
+          borderRadius: '30px',
+        }}
+      >
         <TextField
           id="fname"
           label="First Name"
           variant="outlined"
           type="text"
-          name='fname'
-          margin='normal'
+          name="fname"
+          margin="normal"
           value={fname}
-          onChange={(e) => setFname(e.target.value)}
+          onChange={e => setFname(e.target.value)}
         />
         <br />
         <TextField
@@ -33,22 +53,21 @@ const Register = () => {
           label="Last Name"
           variant="outlined"
           type="text"
-          name='lname'
-          margin='normal'
+          name="lname"
+          margin="normal"
           value={lname}
-          onChange={(e) => setLname(e.target.value)}
+          onChange={e => setLname(e.target.value)}
         />
         <br />
-
         <TextField
           id="email"
           label="Email"
           variant="outlined"
           type="email"
-          name='email'
-          margin='normal'
+          name="email"
+          margin="normal"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={e => setEmail(e.target.value)}
         />
         <br />
         <TextField
@@ -56,15 +75,22 @@ const Register = () => {
           label="Password"
           variant="outlined"
           type="password"
-          name='password'
-          margin='normal'
+          name="password"
+          margin="normal"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        /> <br /> <br />
-        <Button variant="contained" type='submit'>Register</Button>
+          onChange={e => setPassword(e.target.value)}
+        />
+        <br /> <br />
+        <Button
+          variant="contained"
+          sx={{ bgcolor: '#73D2DE', m: 1 }}
+          type="submit"
+        >
+          Register
+        </Button>
       </form>
     </Container>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;
