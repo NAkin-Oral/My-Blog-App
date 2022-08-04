@@ -12,12 +12,15 @@ const ForgotPassword = () => {
 
   return (
     <Container sx={{ height: '100vh', paddingTop: '6rem' }}>
+      <div className="login-title">
+        <h1>We Got Your Back</h1>
+      </div>
       <form
         onSubmit={e => resetPassword(e, navigate)}
         style={{
           maxWidth: '350px',
           width: '100%',
-          margin: 'auto',
+          margin: '4rem auto',
           textAlign: 'center',
           padding: '4rem 0',
           background: '#ffffffff',
