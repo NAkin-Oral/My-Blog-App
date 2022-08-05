@@ -9,7 +9,6 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { blue } from '@mui/material/colors';
-// import FavoriteIcon from '@mui/icons-material/Favorite';
 import ReplyAllIcon from '@mui/icons-material/ReplyAll';
 
 const randomImage = 'https://picsum.photos/600/400';
