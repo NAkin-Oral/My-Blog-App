@@ -42,7 +42,7 @@ export default function Details() {
           alt={state.title}
         />
         <CardContent>
-          <Typography variant="body2" sx={{ fontSize: 16, color: '#06D6A0' }}>
+          <Typography variant="body2" sx={{ fontSize: 16, color: '#FFD166' }}>
             {state.content}
           </Typography>
         </CardContent>
